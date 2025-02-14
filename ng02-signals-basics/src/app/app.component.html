@@ -1,0 +1,28 @@
+<h4>First signal: {{ firstSignal() }}</h4>
+<button (click)="increment()">+1</button>
+<br />
+<h4>Second signal: {{ secondSignal() }}</h4>
+
+<br />
+<h4>Computed Signal: {{ computedSignal() }}</h4>
+
+<br />
+<button (click)="toggleContent()">Toggle Content</button>
+<br />
+@if (showContent()) {
+<app-counter></app-counter>
+}
+<br />
+<button (click)="toggleContent2()">Toggle Content 2</button>
+<br />
+@if (showContent2()) {
+<app-counter2></app-counter2>
+}
+
+<hr />
+
+<app-interoperability></app-interoperability>
+
+<hr />
+
+<app-immutability></app-immutability>
