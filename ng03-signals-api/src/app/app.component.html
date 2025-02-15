@@ -3,15 +3,34 @@
 <label for="amount">Amount</label>
 <input type="number" id="amount" [formControl]="amount" />
 <br />
-<label for="currency">Currency</label>
-<select id="currency" [formControl]="currency">
-  @for (item of currencies; track item) {
-  <option [value]="item">{{ item }}</option>
-  }
-</select>
 <br />
+<label for="currency">Currency: {{ currency() }}</label>
 <app-currency-converter
   [amount]="amount.value!"
-  [currency]="currency.value!"
+  [currency]="currency()"
   (refreshRequired)="refresh()"
 />
+<app-currency-converter
+  [amount]="amount.value!"
+  [currency]="currency()"
+  (refreshRequired)="refresh()"
+/>
+<br />
+<br />
+
+<!-- or:
+[selected]="currency()"
+(selectedChange)="currency.set($event)"
+-->
+<app-option-selector [options]="currencies" [(selected)]="currency">
+  <span *appOption="let currency"> => {{ currency }} ....</span>
+</app-option-selector>
+
+<app-option-selector [options]="currencies" [(selected)]="currency" />
+
+<br />
+<button (click)="startRefEffect()">Start Effect</button>
+<button (click)="stopRefEffect()">Stop Effect</button>
+<button (click)="testDivRef()">testDivRef</button>
+<br />
+<div #refDiv>---</div>
