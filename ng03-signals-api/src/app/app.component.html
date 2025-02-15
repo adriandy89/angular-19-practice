@@ -1,4 +1,4 @@
-<h1>Converter</h1>
+<h1 appRgb [red]="30" [green]="150" [blue]="30">Currency Converter</h1>
 
 <label for="amount">Amount</label>
 <input type="number" id="amount" [formControl]="amount" />
@@ -34,3 +34,15 @@
 <button (click)="testDivRef()">testDivRef</button>
 <br />
 <div #refDiv>---</div>
+
+<br />
+
+<!-- EXERCISE -->
+
+<input #txtInput />
+<button (click)="onSelect()">Select All</button>
+
+<app-input-manager>
+  <input type="text" value="hello" appManaged />
+  <input type="number" value="123" appManaged />
+</app-input-manager>
